@@ -49,7 +49,7 @@ const ProfilePageModal = ({
 }: ProfilePageModalProps) => {   
 
   const [open, setOpen] = useState(false);
-  
+
   const [selectedGame, setSelectedGame] = useState<GameName | ''>('');('');
   const [selectedRank, setSelectedRank] = useState<string>('');
   const [selectedCountry, setSelectedCountry] = useState('');
@@ -91,13 +91,7 @@ const handleRankChange = (value: string) => {
 const handleRoleChange = (value: string) => {
   setSelectedRole(value);
 };
-<<<<<<< HEAD
-=======
 
-// const handleCountryChange = (event: any) => {
-//   setSelectedCountry(event.target.value || ''); // Fallback to empty string if necessary
-// };
->>>>>>> ee73d96f8dade0f06835448ba39850168a24c04c
 
 const filteredCountries = searchTerm
     ? countries.filter(country => 
