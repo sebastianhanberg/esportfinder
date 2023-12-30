@@ -1,6 +1,6 @@
 import ranks from "@/json/ranks.json";
 import countries from '@/json/countries.json';
-
+import roles from "@/json/roles.json";
 
 import { Button } from "@/components/ui/button"
 import {
@@ -52,6 +52,7 @@ const ProfilePageModal = ({
   const [selectedGame, setSelectedGame] = useState<GameName | ''>('');('');
   const [selectedRank, setSelectedRank] = useState<string>('');
   const [selectedCountry, setSelectedCountry] = useState('');
+  const [selectedRole, setSelectedRole] = useState<string>('');
 
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -63,7 +64,7 @@ const ProfilePageModal = ({
       name: formData.get('name') || profileData.name,
       gametag: formData.get('gametag') || profileData.gametag,
       game: selectedGame,
-      role: formData.get('role') || profileData.role,
+      role: selectedRole,
       rank: selectedRank,
       rating: formData.get('rating') || profileData.rating,
       country: formData.get('country') || profileData.country,
@@ -85,6 +86,9 @@ const handleSelectChange = (value: string) => {
 
 const handleRankChange = (value: string) => {
   setSelectedRank(value);
+};
+const handleRoleChange = (value: string) => {
+  setSelectedRole(value);
 };
 
 // const handleCountryChange = (event: any) => {
@@ -171,17 +175,28 @@ const filteredCountries = searchTerm
             </div>
           
           
+
             <div className="grid grid-cols-1 gap-4">
           <div className="col-span-1">
-            <Label htmlFor="role" className="text-left mb-2">
+          <Label htmlFor="Role" className="text-left mb-2">
               Role
             </Label>
-            <Input
-              id="role"
-              name="role"
-              defaultValue={profileData.role}
-              className="col-span-3"
-            />
+          <Select
+            name="Role"
+            onValueChange={handleRoleChange}
+            value={selectedRole}
+          >
+            <SelectTrigger>{selectedRole || "Choose your role..."}</SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                {selectedGame && roles[selectedGame]?.map((role: any) => (
+                  <SelectItem key={role} value={role}>
+                    {role}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
           </div>
           </div>
 
