@@ -1,0 +1,35 @@
+{
+    "Counter-Strike 2": [
+    
+    "Entry Fragger",
+    "Lurker",
+    "AWPer",
+    "Support",
+    "In-game Leader",
+    "Rifler"
+    
+    ],
+    "Valorant": [
+    "Duelist",
+    "Initiator",
+    "Controller",
+    "Sentinel"
+    
+    ],
+    "Fortnite": [
+    "Assault",
+    "Builder",
+    "Sniper",
+    "Medic",
+    "Scout"
+    
+    ],
+    "League of Legends": [
+    "Top Lane",
+    "Jungle",
+    "Mid Lane",
+    "AD Carry",
+    "Support"
+    
+    ]
+    }
